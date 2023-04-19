@@ -4,8 +4,4 @@ def call(String dockerFilePath = 'docker/Dockerfile', String appName) {
     def dockerImageName = "${appName}:${env.BUILD_NUMBER}"
     // Build Docker image
     sh "docker build -t ${dockerRepoLink}/${dockerImageName} ."
-    // Tag Docker image with repository link
-    if (dockerRepoLink) {
-        sh "docker push ${dockerRepoLink}/${dockerImageName}"
-    }
 }

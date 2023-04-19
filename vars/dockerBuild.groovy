@@ -9,5 +9,5 @@ def call(String dockerFilePath = 'docker/Dockerfile', String appName) {
     // Define Docker image name and tag
     def dockerImageName = "${appName}:${env.BUILD_NUMBER}"
     // Build Docker image
-    sh "docker build -t ${dockerRepoLink} ${dockerImageName} ."
+    sh "docker build -t ${dockerRepoLink} ."
 }

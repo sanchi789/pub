@@ -1,9 +1,9 @@
 def call(String dockerFilePath = 'docker/Dockerfile', String appName) {
     dockerRepoLink = env.DOCKER_REPO_LINK
-    try {
-    // some code that might throw an exception
-} catch (Exception e) {
-        error "Invalid input:  ${DOCKER_REPO_LINK} "
+     // handle the error condition here
+  if (!dockerRepoLink || dockerRepoLink.trim().isEmpty()) {
+   
+    error "Invalid DOCKER_REPO_LINK: ${dockerRepoLink}"
 }
 
     // Define Docker image name and tag

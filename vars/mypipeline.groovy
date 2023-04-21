@@ -22,15 +22,15 @@ pipeline {
                  // dockerBuild("git@github.com:sanchi789/publicdoc.git","latest")
            
                   // handle the error condition here
-               if (!dockerRepoLink || dockerRepoLink.trim().isEmpty()) {
+//                 if (!${dockerRepoLink} || ${dockerRepoLink}.trim().isEmpty()) {
    
-                  error "Invalid DOCKER_REPO_LINK: ${dockerRepoLink}"
-              }
+//                   error "Invalid DOCKER_REPO_LINK: ${dockerRepoLink}"
+//               }
 
                 // Define Docker image name and tag
-               def dockerImageName = "${appName}:${BUILD_NUMBER}"
+               //def dockerImageName = "${appName}:${BUILD_NUMBER}"
                 // Build Docker image
-                sh "docker build -t ${dockerRepoLink}/${dockerImageName} ."
+                sh "docker build -t ${dockerRepoLink}/${appName}:${BUILD_NUMBER} ."
               }
           }
 //             stage('Cleanup Docker Images') {

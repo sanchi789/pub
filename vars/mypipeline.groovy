@@ -17,27 +17,27 @@ pipeline {
             }
    
   }
-          stage('Docker build') {
-              steps {
-                 // dockerBuild("git@github.com:sanchi789/publicdoc.git","latest")
-                dockerRepoLink = env.DOCKER_REPO_LINK
-                  // handle the error condition here
-               if (!dockerRepoLink || dockerRepoLink.trim().isEmpty()) {
+          //stage('Docker build') {
+//               steps {
+//                  // dockerBuild("git@github.com:sanchi789/publicdoc.git","latest")
+//                 dockerRepoLink = env.DOCKER_REPO_LINK
+//                   // handle the error condition here
+//                if (!dockerRepoLink || dockerRepoLink.trim().isEmpty()) {
    
-                  error "Invalid DOCKER_REPO_LINK: ${dockerRepoLink}"
-              }
+//                   error "Invalid DOCKER_REPO_LINK: ${dockerRepoLink}"
+//               }
 
-                // Define Docker image name and tag
-               def dockerImageName = "${appName}:${env.BUILD_NUMBER}"
-                // Build Docker image
-                sh "docker build -t ${dockerRepoLink}/${dockerImageName} ."
-              }
-          }
-            stage('Cleanup Docker Images') {
-            steps {
-               sh 'docker system prune -a -f --filter "until=24h"'
-            }
-        }
+//                 // Define Docker image name and tag
+//                def dockerImageName = "${appName}:${env.BUILD_NUMBER}"
+//                 // Build Docker image
+//                 sh "docker build -t ${dockerRepoLink}/${dockerImageName} ."
+//               }
+//           }
+//             stage('Cleanup Docker Images') {
+//             steps {
+//                sh 'docker system prune -a -f --filter "until=24h"'
+//             }
+//         }
 }
 }
 }

@@ -33,11 +33,11 @@ pipeline {
                 sh "docker build -t ${dockerRepoLink}/${appName}:${BUILD_NUMBER} ."
               }
           }
-//             stage('Cleanup Docker Images') {
-//             steps {
-//                sh 'docker system prune -a -f --filter "until=24h"'
-//             }
-//         }
+            stage('Cleanup Docker Images') {
+            steps {
+               sh 'docker system prune -a -f --filter "until=24h"'
+            }
+        }
 }
 }
 }

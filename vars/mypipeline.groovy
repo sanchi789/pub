@@ -13,7 +13,8 @@ pipeline {
                 '''*/
                 //git branch: 'main', credentialsId: 'q1s', url: 'git@github.com:sanchi789/publicdoc.git'
                 //gitClone("q1s","git@github.com:sanchi789/publicdoc.git","main")
-               git branch: "${branchName}", credentialsId: "${jenkinsSecret}", url: "${repoLink}" 
+               //git branch: "${branchName}", credentialsId: "${jenkinsSecret}", url: "${repoLink}" 
+              gitClone("${jenkinsSecret}","${repoLink}","${branchName}")
             }
    
   }
@@ -30,7 +31,8 @@ pipeline {
                 // Define Docker image name and tag
                //def dockerImageName = "${appName}:${BUILD_NUMBER}"
                 // Build Docker image
-                sh "docker build -t ${dockerRepoLink}/${appName}:${BUILD_NUMBER} ."
+                //sh "docker build -t ${dockerRepoLink}/${appName}:${BUILD_NUMBER} ."
+                dockerBuild("${dockerFilePath}","${appName}")
               }
           }
             stage('Cleanup Docker Images') {

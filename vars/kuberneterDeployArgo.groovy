@@ -21,7 +21,7 @@ def call(String helmRepoLink, String valuesFilePath, String newImageTag) {
     stage("Helm upgrade") {
         //sh "helm upgrade --install ${appName} ${repoName}/${chartName} --namespace ${namespace} -f ${valuesFilePath}"
         sh "helm install ${chartName} ${appName}"
-        sh "helm upgrade ${appName}"
+        //sh "helm upgrade ${appName}"
 
     }
 

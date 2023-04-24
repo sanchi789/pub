@@ -19,9 +19,12 @@ def call(String helmRepoLink, String valuesFilePath, String newImageTag) {
 
 sh "sed -i -E 's/tag: [^ ]*/tag: \"${newImageTag}\"/' ${valuesFilePath}"
 //cat apps/charts/${App_Name}/values.yaml
-sh "git config --global user.name "sanchi789""
-sh "git config --global user.email "sanchi.sharma1@tothenew.com""
-sh "git push --set-upstream origin main"
-sh "git commit -m "Publish new version""
-sh "git push"
+  
+sh '''
+git config --global user.name "sanchi789"
+git config --global user.email "sanchi.sharma1@tothenew.com"
+git push --set-upstream origin main
+git commit -m "Publish new version"
+git push
+'''
 }

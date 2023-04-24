@@ -10,12 +10,13 @@ def call(String helmRepoLink, String valuesFilePath, String newImageTag) {
 
     stage("Update values.yaml") {
         sh "sed -i -E 's/tag: [^ ]*/tag: \"${newImageTag}\"/' ${valuesFilePath}"
+       // sed -i -E 's/tag: [^ ]*/tag: "${DOCKER_IMAGE_TAG}"/' 'apps/charts/${App_Name}/values.yaml'
     }
 
 
-//     stage("Helm upgrade") {
-//         sh "helm upgrade --install ${appName} ${repoName}/${chartName} --namespace ${namespace} -f ${valuesFilePath}"
-//     }
+    stage("Helm upgrade") {
+        sh "helm upgrade --install ${appName} ${repoName}/${chartName} --namespace ${namespace} -f ${valuesFilePath}"
+    }
 
 //     stage("Argo CD sync") {
 //         def syncResult = sh(script: "argocd app sync ${appName} --namespace ${namespace}", returnStatus: true)

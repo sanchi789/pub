@@ -1,8 +1,12 @@
 def call(String helmRepoLink, String valuesFilePath, String newImageTag) {
-    def appName = "my-app"             // Set the application name
-    def namespace = "argocd"          // Set the namespace to deploy the application
-    def repoName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('.'))
-    def chartName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('-'))
+//     def appName = "my-app"             // Set the application name
+//     def namespace = "argocd"          // Set the namespace to deploy the application
+//     def repoName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('.'))
+//     def chartName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('-'))
+    appName = env.app_name
+    namespace = env.ns
+    repoName = env.repo
+    chartName = env.chart
 
 //     stage("Checkout") {
 //         git url: "git@github.com:<your-repo>/<your-app>.git", branch: "main", credentialsId: gitSecret

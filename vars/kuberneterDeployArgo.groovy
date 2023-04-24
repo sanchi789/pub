@@ -23,5 +23,4 @@ git config --global user.name "sanchi789"
 git config --global user.email "sanchi.sharma1@tothenew.com"
 git push --set-upstream origin main
 git commit -am "Publish new version" && git push
-
 }

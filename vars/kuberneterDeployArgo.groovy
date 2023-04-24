@@ -1,4 +1,4 @@
-def call(String helmRepoLink, String valuesFilePath, String newImageTag) {
+def call(String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret) {
 //     def appName = "my-app"             // Set the application name
 //     def namespace = "argocd"          // Set the namespace to deploy the application
 //     def repoName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('.'))
@@ -21,6 +21,7 @@ sh "sed -i -E 's/tag: [^ ]*/tag: \"${newImageTag}\"/' ${valuesFilePath}"
 //cat apps/charts/${App_Name}/values.yaml
   
 sh '''
+
 git config --global user.name "sanchi789"
 git config --global user.email "sanchi.sharma1@tothenew.com"
 git push --set-upstream origin main

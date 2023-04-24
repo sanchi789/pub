@@ -14,9 +14,9 @@ def call(String helmRepoLink, String valuesFilePath, String newImageTag) {
     }
 
 
-    stage("Helm upgrade") {
-        sh "helm upgrade --install ${appName} ${repoName}/${chartName} --namespace ${namespace} -f ${valuesFilePath}"
-    }
+//     stage("Helm upgrade") {
+//         sh "helm upgrade --install ${appName} ${repoName}/${chartName} --namespace ${namespace} -f ${valuesFilePath}"
+//     }
 
 //     stage("Argo CD sync") {
 //         def syncResult = sh(script: "argocd app sync ${appName} --namespace ${namespace}", returnStatus: true)

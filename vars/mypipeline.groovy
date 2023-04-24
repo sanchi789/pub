@@ -2,9 +2,9 @@ def call(String jenkinsSecret, String repoLink, String branchName,String dockerF
 pipeline {
   agent any
 
-//   environment {
-//   DOCKER_REPO_LINK ="sanchi1111"
-//   }
+  environment {
+  DOCKER_REPO_LINK ="sanchi1111"
+  }
   stages {
       stage('Checkout') {
             steps {

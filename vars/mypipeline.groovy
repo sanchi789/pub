@@ -1,4 +1,4 @@
-def call(String jenkinsSecret, String repoLink, String branchName,String dockerFilePath = 'docker/Dockerfile', String appName, String dockerRepoLink){
+def call(String jenkinsSecret, String repoLink, String branchName,String dockerFilePath = 'docker/Dockerfile', String appName){
 pipeline {
   agent any
 

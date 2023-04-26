@@ -1,5 +1,5 @@
-def call(String dockerFilePath = 'docker/Dockerfile', String appName) {
-    dockerRepoLink = env.DOCKER_REPO_LINK
+def call(String dockerFilePath = 'docker/Dockerfile', String appName,String dockerRepoLink) {
+   // dockerRepoLink = env.DOCKER_REPO_LINK
      // handle the error condition here
   if (!dockerRepoLink || dockerRepoLink.trim().isEmpty()) {
    

@@ -7,7 +7,7 @@ def call(String dockerFilePath = 'docker/Dockerfile', String appName,String dock
 }
 
     // Define Docker image name and tag
-    def dockerImageName = "${appName}:${env.BUILD_NUMBER}"
+    def dockerImageName = "${appName}:${env.DOCKER_IMAGE_TAG = sh(script: "printf \$(git rev-parse --short HEAD)", returnStdout: true )}"
     // Build Docker image
     sh "docker build -t ${dockerRepoLink}/${dockerImageName} ."
 }

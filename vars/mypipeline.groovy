@@ -1,4 +1,4 @@
-def call(String jenkinsSecret, String repoLink, String branchName,String dockerFilePath = 'docker/Dockerfile', String appName, String Docker_repo){
+def call(String jenkinsSecret, String repoLink, String branchName,String dockerFilePath = 'docker/Dockerfile', String appName, String dockerRepoLink){
 pipeline {
   agent any
 
@@ -16,7 +16,7 @@ pipeline {
           stage('Docker build') {
               steps {
                 
-                dockerBuild("${dockerFilePath}","${appName}","${Docker_repo}")
+                dockerBuild("${dockerFilePath}","${appName}","${dockerRepoLink}")
               }
           }
             stage('Cleanup Docker Images') {

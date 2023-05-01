@@ -4,8 +4,6 @@ sh "sed -i -E 's/tag: [^ ]*/tag: \"${newImageTag}\"/' ${valuesFilePath}"
 
   
 sh '''
-git config --global user.name "${username}"
-git config --global user.email "${email}"
 git add .
 git status
 git push --set-upstream origin main

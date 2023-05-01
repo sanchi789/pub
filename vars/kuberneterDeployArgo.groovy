@@ -1,4 +1,4 @@
-def call(String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret String username,String email) {
+def call(String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret, String username,String email) {
 
 sh "sed -i -E 's/tag: [^ ]*/tag: \"${newImageTag}\"/' ${valuesFilePath}"
 

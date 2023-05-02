@@ -1,18 +1,18 @@
 package com.tothenew
 
 //docker image build
-def dockerBuild(String dockerFilePath = 'docker/Dockerfile', String appName,String dockerRepoLink) {
+ def dockerBuild(String dockerFilePath = 'docker/Dockerfile', String appName,String dockerRepoLink) {
+   // dockerRepoLink = env.DOCKER_REPO_LINK
      // handle the error condition here
   if (!dockerRepoLink || dockerRepoLink.trim().isEmpty()) {
    
-    error "DOCKER_REPO_LINK not defined."
-  }
+    error "Invalid DOCKER_REPO_LINK: ${dockerRepoLink}"
+}
 
     // Define Docker image name and tag
-    def dockerImageName = "${appName}:${DOCKER_IMAGE_TAG}"
+    def dockerImageName = "${appName}:${env.DOCKER_IMAGE_TAG}"
     // Build Docker image
-    sh "docker build -t ${dockerRepoLink}/${dockerImageName} -f ${dockerFilePath} ."
-  
+    sh "docker build -t ${dockerRepoLink}/${dockerImageName} ."
 }
 
 //clean unused images

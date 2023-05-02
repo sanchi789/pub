@@ -1,5 +1,5 @@
 // import com.tothenew.Utilities
-def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret){
+def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret,String oldTag){
  
 pipeline {
   agent any
@@ -15,7 +15,7 @@ pipeline {
   }
     stage('kuber deploy through argod'){
       steps{
-        kuberneterDeployArgo("${helmRepoLink}", "${valuesFilePath}", "${newImageTag}","${gitSecret}")
+        kuberneterDeployArgo("${helmRepoLink}", "${valuesFilePath}", "${newImageTag}","${gitSecret}","${oldTag}")
       }
     }
 }

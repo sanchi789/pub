@@ -1,7 +1,7 @@
-def call(String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret) {
+def call(String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret,String oldTag) {
 
-sh "sed -i -E 's/tag: [^ ]*/tag: \"${newImageTag}\"/' ${valuesFilePath}"
-
+// sh "sed -i -E 's/tag: [^ ]*/tag: \"${newImageTag}\"/' ${valuesFilePath}"
+ sh "sed -i \'s/${oldTag}/${newImageTag}/g\' ${valuesFilePath}"
   
 sh '''
 git add .

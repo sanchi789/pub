@@ -8,14 +8,17 @@ pipeline {
   stages {
       stage('Checkout') {
             steps {
-         
+             script{
              utilities.gitClone("${jenkinsSecret}","${repoLink}","${branchName}")
+            }
             }
    
   }
     stage('kuber deploy through argod'){
       steps{
+       script{
        utilities.kuberneterDeployArgo("${helmRepoLink}","${valuesFilePath}","${newImageTag}","${gitSecret}","${oldTag}")
+      }
       }
     }
 }

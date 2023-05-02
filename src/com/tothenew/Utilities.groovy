@@ -22,7 +22,8 @@ def cleanupDockerImage() {
 
 //kubernete deploy through argocd
 def kuberneterDeployArgo(String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret) {
-    sh "sed -i -E 's/tag: [^ ]*/tag: \"${newImageTag}\"/' ${valuesFilePath}" 
+    //sh "sed -i -E 's/tag: [^ ]*/tag: \"${newImageTag}\"/' ${valuesFilePath}" 
+    sh "sed -i \'s/${oldTag}/${newImageTag}/g\' ${valuesFilePath}"
     sh '''
     git add .
     git status

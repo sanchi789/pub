@@ -9,13 +9,13 @@ pipeline {
       stage('Checkout') {
             steps {
          
-              Utilities.gitClone("${jenkinsSecret}","${repoLink}","${branchName}")
+              Utilities.gitClone(jenkinsSecret,repoLink,branchName)
             }
    
   }
     stage('kuber deploy through argod'){
       steps{
-        Utilities.kuberneterDeployArgo("${helmRepoLink}", "${valuesFilePath}", "${newImageTag}","${gitSecret}","${oldTag}")
+        Utilities.kuberneterDeployArgo(helmRepoLink, valuesFilePath, newImageTag,gitSecret,oldTag)
       }
     }
 }

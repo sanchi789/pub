@@ -1,5 +1,5 @@
 import com.tothenew.Utilities
-def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret,String oldTag){
+def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret,String oldTag,String dockerFilePath = 'docker/Dockerfile',String appName,String dockerRepoLink){
  utilities = new Utilities()
 pipeline {
   agent any

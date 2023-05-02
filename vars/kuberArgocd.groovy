@@ -1,6 +1,6 @@
 import com.tothenew.Utilities
 def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret,String oldTag){
- 
+ utilities = new Utilities()
 pipeline {
   agent any
 
@@ -9,13 +9,13 @@ pipeline {
       stage('Checkout') {
             steps {
          
-              Utilities.gitClone("jenkinsSecret","repoLink","branchName")
+             utilities.gitClone("${jenkinsSecret}","${repoLink}","${branchName}")
             }
    
   }
     stage('kuber deploy through argod'){
       steps{
-        Utilities.kuberneterDeployArgo("helmRepoLink","valuesFilePath","newImageTag","gitSecret","oldTag")
+       utilities.kuberneterDeployArgo("${helmRepoLink}","${valuesFilePath}","${newImageTag}","${gitSecret}","${oldTag}")
       }
     }
 }

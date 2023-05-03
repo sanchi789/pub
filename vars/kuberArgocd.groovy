@@ -26,7 +26,7 @@ pipeline {
    stage('docker login') {
               steps {
                script{
-              utilities.dockerLoginEcr("${username}","${pass}")
+              utilities.dockerhubLogin("${username}","${pass}")
               }
               }
           }

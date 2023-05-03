@@ -63,7 +63,7 @@ def dockerPush(String repoUrl, String imageName) {
 
 }
 //dockerhub login
-def dockerhubLogin(String username,string pass)
+def dockerhubLogin(String username,String pass)
 {
  sh 'docker login -u "${username}" -p "${pass}" docker.io'
 }

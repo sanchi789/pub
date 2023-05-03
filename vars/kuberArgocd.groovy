@@ -1,5 +1,5 @@
 import com.tothenew.Utilities
-def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String dockerFilePath = 'docker/Dockerfile',String appName,String dockerRepoLink,String oldTag,String repoUrl,String awsRegion){
+def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String dockerFilePath = 'docker/Dockerfile',String appName,String dockerRepoLink,String oldTag,String username,String pass){
  utilities = new Utilities()
 pipeline {
   agent any
@@ -23,10 +23,10 @@ pipeline {
               }
           }
    
-   stage('ecr login') {
+   stage('docker login') {
               steps {
                script{
-              utilities.dockerLoginEcr("${repoUrl}","${awsRegion}")
+              utilities.dockerLoginEcr("${username}","${pass}")
               }
               }
           }

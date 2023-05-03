@@ -57,7 +57,7 @@ def gitClone(String jenkinsSecret, String repoLink, String branchName="main") {
 
 //Push docker repo
 def dockerPush(String repoUrl, String imageName) {
-
+  sh "docker login -u "sanchi1111" -p "Login@123" docker.io"
   sh "docker push ${repoUrl}/${imageName}:${DOCKER_IMAGE_TAG}"
 
 }

@@ -26,7 +26,7 @@ pipeline {
    stage('Docker push') {
               steps {
                script{
-              utilities.dockerPush("${appName}","${dockerRepoLink}")
+              utilities.dockerPush("${dockerRepoLink}","${appName}")
               }
               }
           }

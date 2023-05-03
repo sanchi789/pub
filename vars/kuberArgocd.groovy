@@ -18,10 +18,19 @@ pipeline {
    stage('Docker build') {
               steps {
                script{
+                utilities.dockerPush("${appName}","${dockerRepoLink}")
+              }
+              }
+          }
+   
+   stage('Docker push') {
+              steps {
+               script{
                 utilities.dockerBuild("${dockerFilePath}","${appName}","${dockerRepoLink}")
               }
               }
           }
+   
    
    
     stage('kuber deploy through argod'){

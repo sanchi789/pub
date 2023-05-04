@@ -25,6 +25,7 @@ def kuberneterDeployArgo(String helmRepoLink, String valuesFilePath, String newI
     //sh "sed -i -E 's/tag: [^ ]*/tag: \"${newImageTag}\"/' ${valuesFilePath}" 
    
     sh "sed -i \'s/${oldTag}/${newImageTag}/g\' ${valuesFilePath}"
+    sh "echo ${valuesFilePath}"
     sh '''
     git add .
     git status

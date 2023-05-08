@@ -1,8 +1,7 @@
-def call(String helmRepoLink, String valuesFilePath, String newImageTag) {
+def call(String helmRepoLink, String valuesFilePath, String newImageTag,String oldTag) {
 
- oldTag = sh(script: "grep -i \"image:\" ${valuesFilePath} | cut -d : -f 3" , returnStdout: true).trim()
+ //oldTag = sh(script: "grep -i \"image:\" ${valuesFilePath} | cut -d : -f 3" , returnStdout: true).trim()
  sh "sed -i \'s/${oldTag}/${newImageTag}/g\' ${valuesFilePath}"
- 
 // sh "echo ${valuesFilePath}"
 
 sh '''

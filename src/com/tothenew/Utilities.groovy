@@ -12,7 +12,7 @@ package com.tothenew
     // Define Docker image name and tag
     def dockerImageName = "${appName}:${env.DOCKER_IMAGE_TAG}"
     // Build Docker image
-    sh "docker build -t ${dockerRepoLink}/${dockerImageName} ."
+    sh "docker build -t ${dockerRepoLink}/${dockerImageName} -f ${dockerFilePath} ."
 }
 
 //clean unused images

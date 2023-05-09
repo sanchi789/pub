@@ -34,13 +34,15 @@ def call(String jenkinsSecret, String repoLink, String branchName,String helmRep
           }
    
    
-//    stage('Docker ECR push'){
-//           steps {
-//                script{
-//                    utilities.dockerPush("${dockerRepoUrl}","${appName}")
-//                }
-//            }
-//        }
+  
+  
+   stage('Docker ECR push'){
+          steps {
+           script{
+                   utilities.dockerPush("${dockerRepoUrl}","${appName}")
+               }
+             }
+           }
 
     stage('kuber deploy through argod'){
       steps {

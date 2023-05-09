@@ -3,7 +3,7 @@ def call(String jenkinsSecret, String repoLink, String branchName,String helmRep
  utilities = new Utilities()
  if (appName.isEmpty()) {
    
-    def appName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('.'))
+    appName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('.'))
 }
 //def appName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('.'))
 

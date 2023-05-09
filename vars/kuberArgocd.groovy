@@ -35,7 +35,7 @@ pipeline {
    
    
    stage('Docker ECR push'){
-           steps{
+          steps {
                script{
                    utilities.dockerPush("${dockerRepoUrl}","${appName}")
                }
@@ -43,7 +43,7 @@ pipeline {
        }
 
     stage('kuber deploy through argod'){
-      steps{
+      steps {
        script{
        utilities.kuberneterDeployArgo("${helmRepoLink}","${valuesFilePath}","${newImageTag}","${jenkinsSecret}","${oldTag}","${branchName}")
       }

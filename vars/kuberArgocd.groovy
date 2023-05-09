@@ -1,7 +1,7 @@
 import com.tothenew.Utilities
-def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String dockerFilePath = 'docker/Dockerfile',String dockerRepoLink,String oldTag,String username,String pass){
+def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String dockerFilePath = 'docker/Dockerfile',String dockerRepoUrl,String oldTag,String awsRegion,String appName){
  utilities = new Utilities()
- def appName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('.'))
+// def appName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('.'))
 
 pipeline {
   agent any
@@ -25,22 +25,24 @@ pipeline {
               }
           }
    
-   stage('docker login') {
+   stage('ECR login') {
               steps {
                script{
-              utilities.dockerhubLogin("${username}","${pass}")
+              utilities.dockerLoginEcr("${dockerRepoUrl}","${awsRegion}")
               }
               }
           }
    
    
-   stage('Docker push') {
-              steps {
-               script{
-              utilities.dockerPush("${dockerRepoLink}","${appName}")
-              }
-              }
-          }
+  
+   stage('Docker ECR push'){
+           steps{
+               script{
+                   utilities.dockerPush("${dockerRepoUrl}","${appName}")
+               }
+           }
+       }
+
    
    
    

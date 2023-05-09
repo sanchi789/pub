@@ -47,7 +47,7 @@ pipeline {
     stage('kuber deploy through argod'){
       steps{
        script{
-       utilities.kuberneterDeployArgo("${helmRepoLink}","${valuesFilePath}","${newImageTag}","${jenkinsSecret}","${oldTag}")
+       utilities.kuberneterDeployArgo("${helmRepoLink}","${valuesFilePath}","${newImageTag}","${jenkinsSecret}","${oldTag}","${branchName}")
       }
       }
     }

@@ -34,7 +34,6 @@ pipeline {
           }
    
    
-  
    stage('Docker ECR push'){
            steps{
                script{
@@ -43,9 +42,6 @@ pipeline {
            }
        }
 
-   
-   
-   
     stage('kuber deploy through argod'){
       steps{
        script{

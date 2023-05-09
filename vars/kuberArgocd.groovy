@@ -3,7 +3,7 @@ def call(String jenkinsSecret, String repoLink, String branchName,String helmRep
  utilities = new Utilities()
 // def appName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('.'))
 
-pipeline {
+pipeline 
   agent any
   
 

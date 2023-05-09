@@ -19,7 +19,7 @@ def call(String jenkinsSecret, String repoLink, String branchName,String helmRep
    stage('Docker build') {
               steps {
                script{
-                 utilities.dockerBuild("${dockerFilePath}","${appName}","${dockerRepoLink}")
+                 utilities.dockerBuild("${dockerFilePath}","${appName}","${dockerRepoUrl}")
               }
               }
           }

@@ -1,7 +1,7 @@
 import com.tothenew.Utilities
 def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String dockerFilePath = 'docker/Dockerfile',String dockerRepoUrl,String oldTag,String awsRegion,String appName){
  utilities = new Utilities()
- if (appName.isEmpty() {
+ if (appName.isEmpty()) {
    
     def appName = helmRepoLink.substring(helmRepoLink.lastIndexOf('/') + 1, helmRepoLink.lastIndexOf('.'))
 }

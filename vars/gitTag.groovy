@@ -1,6 +1,5 @@
 def call(String tagName) {
   try {
-    sh "git init ${tagName}"
     sh "git tag ${tagName}"
     sh "git push origin ${tagName}"
   } catch (Exception e) {

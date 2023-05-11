@@ -27,14 +27,14 @@ def kuberneterDeployArgo(String helmRepoLink, String valuesFilePath, String newI
     sh "sed -i \'s/${oldTag}/${newImageTag}/g\' ${valuesFilePath}"
     sh "echo ${valuesFilePath}"
     sh '''
-   
+    git add .
+    git status
     git push --set-upstream origin main
     git commit -m "Publish new version"
     git push
     '''
 }
-//  git add .
-//     git status
+
 //Docker ecr login
 def dockerLoginEcr(String repoUrl , String awsRegion) {  
 

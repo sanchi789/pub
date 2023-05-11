@@ -42,7 +42,7 @@ def dockerLoginEcr(String repoUrl , String awsRegion) {
 
 }
 
-//kubernete deploy using yaml file
+//kubernete deploy using yaml fil
 def kubernetesDeploy(String filePath, String newImageTag) {
       oldTag = sh(script: "grep -i \"image:\" ${filePath} | cut -d : -f 3" , returnStdout: true).trim()
      sh"""

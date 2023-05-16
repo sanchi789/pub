@@ -42,7 +42,7 @@ def call(String jenkinsSecret, String repoLink, String branchName,String helmRep
 //                }
 //              }
 //          
-  stage('Docker ECR Login') {
+  stage('Docker ECR Push') {
    steps{
     script{
      utilities.dockerPush("${dockerRepoUrl}","${appName}")

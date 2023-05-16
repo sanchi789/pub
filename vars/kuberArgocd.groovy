@@ -1,5 +1,5 @@
 import com.tothenew.Utilities
-def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath,String dockerFilePath = 'docker/Dockerfile',String dockerRepoUrl,String awsRegion,String appName,Sring newImagetag){
+def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath,String dockerFilePath = 'docker/Dockerfile',String dockerRepoUrl,String awsRegion,String appName,String newImagetag){
  utilities = new Utilities()
  if (appName.isEmpty()) {
    

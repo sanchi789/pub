@@ -21,7 +21,7 @@ def cleanupDockerImage() {
 }
 
 //kubernete deploy through argocd
-def kuberneterDeployArgo(String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret,String branchName) {
+def kuberneterDeployArgo(String helmRepoLink, String valuesFilePath,String gitSecret,String branchName) {
     //gitClone for helm 
     git branch: "${branchName}", credentialsId: "${gitSecret}", url: "${helmRepoLink}"
     //oldTag = sh(script: "grep -i \"image:\" ${valuesFilePath} | cut -d : -f 3" , returnStdout: true).trim()

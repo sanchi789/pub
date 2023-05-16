@@ -24,11 +24,12 @@ def cleanupDockerImage() {
 def kuberneterDeployArgo(String helmRepoLink, String valuesFilePath, String newImageTag,String gitSecret,String branchName) {
     //gitClone for helm 
     git branch: "${branchName}", credentialsId: "${gitSecret}", url: "${helmRepoLink}"
-    oldTag = sh(script: "grep -i \"image:\" ${valuesFilePath} | cut -d : -f 3" , returnStdout: true).trim()
+    //oldTag = sh(script: "grep -i \"image:\" ${valuesFilePath} | cut -d : -f 3" , returnStdout: true).trim()
     //sh "sed -i \'s/${oldTag}/${newImageTag}/g\' ${valuesFilePath}"
     //sed -i \'s/${oldTag}/${DOCKER_IMAGE_TAG}/g\' ${filePath}
-    sh "sed -i \'s/${oldTag}/${DOCKER_IMAGE_TAG}/g\' ${valuesFilePath}"
-    sh "echo ${valuesFilePath}"
+   // sh "sed -i \'s/${oldTag}/${DOCKER_IMAGE_TAG}/g\' ${valuesFilePath}"
+    sh "sed -i -E 's/tag: [^ ]*/tag: \"${DOCKER_IMAGE_TAG}\"/' ${valuesFilePath}"
+   // sh "echo ${valuesFilePath}"
     sh '''
     git add .
     git status

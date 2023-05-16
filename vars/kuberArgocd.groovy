@@ -1,5 +1,5 @@
 import com.tothenew.Utilities
-def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String dockerFilePath = 'docker/Dockerfile',String dockerRepoUrl,String oldTag,String awsRegion,String appName){
+def call(String jenkinsSecret, String repoLink, String branchName,String helmRepoLink, String valuesFilePath, String newImageTag,String dockerFilePath = 'docker/Dockerfile',String dockerRepoUrl,String awsRegion,String appName){
  utilities = new Utilities()
  if (appName.isEmpty()) {
    
@@ -53,7 +53,7 @@ def call(String jenkinsSecret, String repoLink, String branchName,String helmRep
     stage('kuber deploy through argod'){
       steps {
        script{
-       utilities.kuberneterDeployArgo("${helmRepoLink}","${valuesFilePath}","${newImageTag}","${jenkinsSecret}","${oldTag}","${branchName}")
+       utilities.kuberneterDeployArgo("${helmRepoLink}","${valuesFilePath}","${newImageTag}","${jenkinsSecret}","${branchName}")
       }
       }
     }

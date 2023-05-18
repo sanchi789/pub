@@ -2,8 +2,8 @@ def call(String channels,String tokens,String messages,String isSuccess)
 {
   
    if("${isSuccess}"==true){
-      def successMessage = "*Job Succeeded* :white_check_mark:"
-    def formattedMessag = "${successMessage}\n\n> ${messages}"
+      def successMessage = "*Job Succeeded* :white_check_mark:\n\n"
+    def formattedMessag = successMessage + "> ${messages}"
                slackSend( channel: "${channels}", token: "${tokens}", message: "${formattedMessag}")
 
       }

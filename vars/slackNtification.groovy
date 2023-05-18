@@ -9,7 +9,7 @@ def call(String channels,String tokens,String messages,String isSuccess)
       }
       else{
          def failureMessage = ":x: *Job Failed* :x:\n\n"
-         def formattedMessage = failureMessage + "> ${message}"
+         def formattedMessage = failureMessage + "> ${messages}"
                slackSend( channel: "${channels}", token: "${tokens}", message: "${formattedMessage}")
     
    }

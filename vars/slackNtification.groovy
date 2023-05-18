@@ -6,6 +6,7 @@ def call(String channels,String tokens)
 {
   
   def COLOR_MAP = [
+    'ALWAYS': 'info',
     'SUCCESS': 'good', 
     'FAILURE': 'danger',
     'ABORT': 'warning'

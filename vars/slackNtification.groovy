@@ -1,13 +1,21 @@
-def call(String channel,String token,String message)
+def call(String channel,String token,String message,boolean isSuccess)
 {
-   post{
-        success{
-            slackSend( channel: "slacknotification", token: "slackcred", message: "hello everyone Build completed!!1")
-           // slackSend(baseUrl: "https://app.slack.com/client/T056YMQQVE1/C0583BMDLTT", teamDomain: "ag-6vd6916", channel: "slacknotification", color: "good", botUser: "false", token: "slackcred", notifyCommitters: "false", iconEmoji: "", username: "", timestamp: "",message: "hi everyone build completed!!")
+   post {
+      if(isSuccess==true){
+        success {
+            script {
+                //slackNotification('Build completed', true)
+               slackSend( channel: "${channel}", token: "${token}", message: "${message}")
+            }
         }
-         success{
-            slackSend( channel: "slacknotification", token: "slackcred", message: "hello everyone Build completed!!1")
-           // slackSend(baseUrl: "https://app.slack.com/client/T056YMQQVE1/C0583BMDLTT", teamDomain: "ag-6vd6916", channel: "slacknotification", color: "good", botUser: "false", token: "slackcred", notifyCommitters: "false", iconEmoji: "", username: "", timestamp: "",message: "hi everyone build completed!!")
+      }
+      else{
+        failure {
+            script {
+                //slackNotification('Build failed', false)
+               slackSend( channel: "${channel}", token: "${token}", message: "${message}")
+            }
         }
     }
+   }
 }

@@ -1,3 +1,7 @@
+// def getBuildUser() {
+//     return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
+// }
+  
 def call(String channels,String tokens,String messages,String isSuccess)
 {
   
@@ -5,12 +9,6 @@ def call(String channels,String tokens,String messages,String isSuccess)
     'SUCCESS': 'good', 
     'FAILURE': 'danger',
 ]
-  
-  
-  def getBuildUser() {
-    return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
-}
-  
   
    if("${isSuccess}"=="true"){
 //       def successMessage = "*Job Succeeded* :white_check_mark:\n\n"

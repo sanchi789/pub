@@ -22,7 +22,7 @@
 def call(String channels,String tokens,String messages,String isSuccess)
 {
    
-      if(isSuccess==true){
+   if("${isSuccess}"==true){
         
                 //slackNotification('Build completed', true)
                slackSend( channel: "${channels}", token: "${tokens}", message: "${messages}")

@@ -21,7 +21,7 @@
 // }
 
 
-def call(String channel,String token,String message,boolean isSuccess)
+def call(String channel,String token,String message,String isSuccess)
 {
    
       if(isSuccess==true){

@@ -42,7 +42,7 @@ def call(String webhookUrl) {
   //sh 'curl -X POST -H 'Content-Type: application/json' -d '{\"text\": \"${message}"\}' "${webhookUrl}"'
 //   sh "curl -X POST -H 'Content-Type: application/json' -d '{\"text\": \"${message}\"}' ${webhookUrl}"
   String curlCommand = "curl -X POST -H 'Content-Type: application/json' -d '{\"text\": \"${message}\"}' ${webhookUrl}"
-  sh curlCommand
+  sh 'curlCommand'
 
 
 }

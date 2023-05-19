@@ -16,6 +16,6 @@ def call()
 //def message= "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n More info at: ${env.BUILD_URL}"
   //  curl -X POST -H 'Content-type: application/json' --data '{"text":"${messge}"}' https://hooks.slack.com/services/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
    // sh ' curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' {https://hooks.slack.com/services/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}'
-   sh" curl -X POST -H 'Content-type: application/json' --data '{text:"Hello, World!"}' https://hooks.slack.com/services/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"
+   sh" curl -X POST -H 'Content-type: application/json' --data '{text:"Hello World!"}' https://hooks.slack.com/services/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"
 }
 //curl -X POST -H 'Content-type: application/json' --data '{"text":"${messge}"}' https://hooks.slack.com/services/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

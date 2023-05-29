@@ -2,25 +2,25 @@ def getBuildUser() {
     return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
 }
   
-def call(String buildUrl,String status)
+def call(String buildUrl)
 {
-  def color
-  def COLOR_MAP = [
-        Switch (status) 
-      {
-        case "success":
-            "SUCCESS" = "#36a64f"'
-            break
-        case "failure":
-             "FAILURE" =  "#ff0000"
-            break
-        case "aborted":
-            "ABORTED"="#f9c300"
-            break
-        default:
-            break
-        }
-      ]
+//   def color
+//   def COLOR_MAP = [
+//         Switch (status) 
+//       {
+//         case "success":
+//             "SUCCESS" = "#36a64f"'
+//             break
+//         case "failure":
+//              "FAILURE" =  "#ff0000"
+//             break
+//         case "aborted":
+//             "ABORTED"="#f9c300"
+//             break
+//         default:
+//             break
+//         }
+//       ]
  BUILD_USER = getBuildUser()
          
  //slackSend channel: "${channels}", color: COLOR_MAP[currentBuild.currentResult], token: "${tokens}", message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n More info at: ${env.BUILD_URL}"

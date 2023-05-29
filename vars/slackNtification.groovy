@@ -11,15 +11,15 @@ def call(String buildUrl,String Status)
 //             "SUCCESS" = "#36a64f"'
 //             break
    Switch (status) {  
-    case "success":
+    Case "success":
         color = "#36a64f"
         statusText = "SUCCESS"
         break
-    case "failure":
+    Case "failure":
         color = "#ff0000"
         statusText = "FAILURE"
         break
-    case "aborted":
+    Case "aborted":
         color = "#f9c300"
         statusText = "ABORTED"
         break

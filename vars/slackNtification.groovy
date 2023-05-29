@@ -6,7 +6,7 @@ def call(String buildUrl)
 {
   def color
   def COLOR_MAP = [
-      "SUCCESS" = "#36a64f"'
+      "SUCCESS" = "#36a64f"
       "FAILURE" =  "#ff0000"
       "ABORTED"=  "#f9c300"
       ]

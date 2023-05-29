@@ -6,9 +6,14 @@ def call(String buildUrl,String Status)
 {
   def color
   def COLOR_MAP = [
-        switch (Status) {
+//         switch (Status) {
+//         case "success":
+//             "SUCCESS" = "#36a64f"'
+//             break
+      switch (status) {
         case "success":
-            "SUCCESS" = "#36a64f"'
+            color = "#36a64f"
+            statusText = "SUCCESS"
             break
         case "failure":
             //color = "#ff0000"

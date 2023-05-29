@@ -6,9 +6,9 @@ def call(String buildUrl)
 {
   def color
   def COLOR_MAP = [
-      "SUCCESS": 'good',
-      "FAILURE": 'danger',
-      "ABORTED": 'warning'
+      "SUCCESS": '#36a64f',
+      "FAILURE": '#ff0000',
+      "ABORTED": '#ff0000'
       ]
  BUILD_USER = getBuildUser()
          

@@ -6,10 +6,10 @@ def call(String buildUrl,String Status)
 {
   def color
   def COLOR_MAP = [
-      if("${status}"=="SUCCESS")
+      if(status=='SUCCESS')
       { 'SUCCESS': "#36a64f", 
           }
-      else if("${status}"=="ABORTED")
+      else if(status=='ABORTED')
       { 'ABORTED': "#f9c300",
           }
       else

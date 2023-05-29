@@ -2,7 +2,7 @@ def getBuildUser() {
     return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
 }
   
-def call(String buildUrl,String Status)
+def call(String buildUrl,String status)
 {
   def color
   def COLOR_MAP = [

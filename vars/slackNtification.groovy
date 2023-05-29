@@ -10,25 +10,35 @@ def call(String buildUrl,String Status)
 //         case "success":
 //             "SUCCESS" = "#36a64f"'
 //             break
-      switch (status) {
-        case "success":
-            color = "#36a64f"
-            statusText = "SUCCESS"
-            break
-        case "failure":
-            //color = "#ff0000"
-             "FAILURE" =  "#ff0000"
-            break
-        case "aborted":
-           // color = "#f9c300"
-            "ABORTED"="#f9c300"
-            break
-        default:
-            break
-    }
- 
-]
-        ]
+   switch (status) {  
+    case "success":
+        color = "#36a64f"
+        statusText = "SUCCESS"
+        break
+    case "failure":
+        color = "#ff0000"
+        statusText = "FAILURE"
+        break
+    case "aborted":
+        color = "#f9c300"
+        statusText = "ABORTED"
+        break
+    default:
+        color = "#000000"
+        statusText = "UNKNOWN STATUS"
+        break
+}
+      ]
+//         case "failure":
+//             //color = "#ff0000"
+//              "FAILURE" =  "#ff0000"
+//             break
+//         case "aborted":
+//            // color = "#f9c300"
+//             "ABORTED"="#f9c300"
+//             break
+//         default:
+//             break
  BUILD_USER = getBuildUser()
          
  //slackSend channel: "${channels}", color: COLOR_MAP[currentBuild.currentResult], token: "${tokens}", message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n More info at: ${env.BUILD_URL}"

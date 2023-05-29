@@ -12,11 +12,9 @@ def call(String buildUrl,String status)
             "SUCCESS" = "#36a64f"'
             break
         case "failure":
-            //color = "#ff0000"
              "FAILURE" =  "#ff0000"
             break
         case "aborted":
-           // color = "#f9c300"
             "ABORTED"="#f9c300"
             break
         default:

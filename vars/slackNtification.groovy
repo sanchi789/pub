@@ -27,7 +27,7 @@ def call(String buildUrl)
     def message= "*${currentBuild.currentResult}:* Job_Name: ${env.JOB_NAME}\n build_Number ${env.BUILD_NUMBER} by ${BUILD_USER}\n More info at: ${env.BUILD_URL}"
 
   sh  """
-    curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"${messge}\"}' ${buildUrl}
+    curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"${message}\"}' ${buildUrl}
     """
 }
 

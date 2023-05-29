@@ -8,14 +8,14 @@ def call(String buildUrl,String status)
   def COLOR_MAP = [
         Switch (status) 
       {
-        Case "success":
+        case "success":
             "SUCCESS" = "#36a64f"'
             break
-        Case "failure":
+        case "failure":
             //color = "#ff0000"
              "FAILURE" =  "#ff0000"
             break
-        Case "aborted":
+        case "aborted":
            // color = "#f9c300"
             "ABORTED"="#f9c300"
             break

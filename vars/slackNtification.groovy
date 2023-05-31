@@ -20,7 +20,8 @@ def call(String buildUrl)
     
     
      sh  """
-    curl -X POST -H 'Content-type: application/json'  --data '{ \"attachments\": [{ \"color\": \"${COLOR_MAP[currentBuild.currentResult]}\", \"text\": \"${message}\" }] }' \ ${buildUrl}
+    curl -X POST -H 'Content-type: application/json'  --data '{ \"attachments\": [{ \"color\": \"${COLOR_MAP[currentBuild.currentResult]}\", \"text\": \"${message}\" }] }' \ 
+                  ${buildUrl}
     """
 }
 

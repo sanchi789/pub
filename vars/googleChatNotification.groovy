@@ -19,7 +19,7 @@ def call(String webhookUrl) {
     //curl -XPOST -H 'Content-Type: application/json\; charset=UTF-8' -d "{"'"text"'": "'"Hello from a Python script!"'"}" "https://chat.googleapis.com/v1/spaces/AAAAycUdkuk/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=KNgJ2QhUHmKD0MagNh09wfaSd3slF8-3iuBSNQVHsz0"
     
     sh """
-      curl -XPOST -H 'Content-Type: application/json\; charset=UTF-8' -d "{"'"text"'": "'"${message}"'"}" ${webhookUrl}
+      curl -XPOST -H 'Content-Type: application/json; charset=UTF-8' -d "{"'"text"'": "'"${message}"'"}" ${webhookUrl}
      """
 }
 

@@ -16,7 +16,7 @@ def call(String webhookUrl) {
 //     curl -XPOST -H 'Content-type: application/json\; charset=UTF-8' -d "{"'"attachments"'": [{"'"color"'": "${COLOR_MAP[currentBuild.currentResult]}", "'"text"'": "${message}" }] }' ${webhookUrl}"
 //     """
     
-   sh """ curl -XPOST -H 'Content-Type: application/json; charset=UTF-8' -d "{"'"text"'": "'"Hello from a Python script!"'"}" ${webhookUrl}
+   sh """ curl -XPOST -H 'Content-Type: application/json; charset=UTF-8' -d "{"'"text"'": "'"Hello from a Python script!"'"}" "${webhookUrl}"
     """
 //     sh """
 //       curl -XPOST -H 'Content-Type: application/json; charset=UTF-8' -d "{"'"text"'": "'"${message}"'"}" ${webhookUrl}
